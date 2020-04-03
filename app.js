@@ -316,7 +316,7 @@ app.post("/profile", async function (req, res) {
 
 });
 
-app.post("/quote", isLoggedIn, function (req, res) {
+app.post("/quote", function (req, res) {
     User.findOne({ username: req.session.passport.user }, (err, user) => {
 
         var myData = new Quote(req.body);
