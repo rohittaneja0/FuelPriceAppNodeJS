@@ -111,14 +111,15 @@
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="fullName" value="<%= profile.fullName %>"required maxlength="50"><br>
             <label for="address1">Address 1:</label><br>
-            <input type="text" id="address1" name="address1"  required maxlength="100"><br>
+            <input type="text" id="address1" name="address1"  value="<%= profile.address1%>" required maxlength="100"><br>
             <label for="address2">Address 2:</label><br>
-            <input type="text" id="address2" name="address2" maxlength="100"><br>
+            <input type="text" id="address2" name="address2" value="<%= profile.address2 %>" maxlength="100"><br>
             <label for="city">City:</label><br>
-            <input type="text" id="city" name="city" required maxlength="100"><br>
+            <input type="text" id="city" name="city" value="<%= profile.city %>" required maxlength="100"><br>
             <!--change this to a drop down list-->
             <label for="state">State:</label><br>
-            <select id="state" name= "state" required>
+            <select id="state" name= "state" value="" selected required>
+                <option value="">Please choose an option</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -172,7 +173,7 @@
                 <option value="WY">Wyoming</option>
             </select>
             <label for="zip">Zip:</label><br>
-            <input type="text" id="zip" name="zip" required maxlength="9" minlength="5"><br>
+            <input type="text" id="zip" name="zip" value="<%= profile.zip %>" required maxlength="9" minlength="5"><br>
             <input type="Submit">
         </form>
     </div>

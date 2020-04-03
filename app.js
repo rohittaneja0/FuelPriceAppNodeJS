@@ -86,7 +86,7 @@ app.get("/quoteHistory", isLoggedIn, function (req, res) {
                     res.redirect('/profileManagement')
                 }else {
                     Profile.findOne({userID: user.id}).populate('quotes').exec((err, q) => {
-                        console.log(q);
+                        console.log("Q-------",q);
                         res.render('QuoteHistory', { users: q.quotes });
                     })
                 }
@@ -134,7 +134,7 @@ app.get("/quote", isLoggedIn, function (req, res, next) {
             } else if(!profile){
                 res.redirect('/profileManagement')
             }else {
-                console.log(profile);
+                console.log("Profile-------",profile);
 
                 res.render('FuelQuote', { profile });
             }
@@ -316,7 +316,7 @@ app.post("/profile", async function (req, res) {
 
 });
 
-app.post("/quote", function (req, res) {
+app.post("/quote", isLoggedIn, function (req, res) {
     User.findOne({ username: req.session.passport.user }, (err, user) => {
 
         var myData = new Quote(req.body);
