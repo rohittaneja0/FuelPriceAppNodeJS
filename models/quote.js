@@ -6,7 +6,7 @@ var Quote = new mongoose.Schema({
     username: String,
     gallons: Number,
     dilvery: String,
-    date: Date,
+    date: String,
     sugPrice: Number,
     due: Number
 
