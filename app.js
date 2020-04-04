@@ -10,7 +10,6 @@ var flash = require('connect-flash');
 var User = require("./models/users");
 var Profile = require("./models/profile");
 var Quote = require("./models/quote");
-var FuelQuoteServer = require('./FuelQuoteServer');
 var LocalStrategy = require('passport-local');
 var passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
