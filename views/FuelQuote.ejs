@@ -23,6 +23,16 @@
             box-sizing: border-box;
         }
 
+        input[type=number], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
         input[type=Password], select {
             width: 100%;
             padding: 12px 20px;
@@ -98,15 +108,15 @@
         <form method="POST">
             <h2 style="text-align:center">Fuel Quote Form</h2>
             <label for="gallons">Gallons Requested:</label><br>
-            <input type="text" id="gallons" name="gallons" required><br>
+            <input type="number" id="gallons" name="gallons" value="<%= myData.gallons %>" required><br>
             <label for="dilvery">Delivery Address:</label><br>
             <input type="text" id="dilvery" name="dilvery" value="<%= profile.address1 %>" readonly><br>
             <label for="date">Delivery Date:</label><br>
-            <input type="Date" id="date" name="date" required><br>
+            <input type="Date" id="date" name="date" value="<%= myData.date %>"required><br>
             <label for="sugPrice">Suggested Price:</label><br>
-            <input type="text" id="sugPrice" name="sugPrice" readonly><br>
+            <input type="text" id="sugPrice" name="sugPrice" value="<%= myData.sugPrice %>"readonly><br>
             <label for="due">Total Amount Due:</label><br>
-            <input type="text" id="due" name="due" readonly><br>
+            <input type="text" id="due" name="due" value="<%= myData.due %>" readonly><br>
             <button type="submit" class="btn btn-success btn-lg" formaction="/pricing">Get Price</button><br>
             <button type="submit" class="btn btn-success btn-lg" formaction="/quote">Submit</button>
         </form>
