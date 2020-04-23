@@ -81,6 +81,40 @@
             padding: 10px;
         }
     </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var gallonInput = document.getElementById('gallons').value;
+            var dateInput = document.getElementById('date').value;
+
+            console.log(gallonInput);
+            console.log(dateInput);
+
+            if(gallonInput.value === "" || !dateInput){
+                success();
+                document.getElementById('getpricebtn').disabled = true;
+                document.getElementById("submitbtn").disabled = true;
+            }else{
+                document.getElementById('getpricebtn').disabled = false;
+                document.getElementById("submitbtn").disabled = false;
+            }   
+        });
+
+        function success() {
+            var gallonInput = document.getElementById('gallons').value;
+            var dateInput = document.getElementById('date').value;
+            console.log(gallonInput);
+            console.log(dateInput);
+            if (gallonInput.length === 0 && !dateInput) {
+                document.getElementById('getpricebtn').disabled = true;
+                document.getElementById("submitbtn").disabled = true;
+            } else {
+                document.getElementById('getpricebtn').disabled = false;
+                document.getElementById("submitbtn").disabled = false;
+            }
+        }
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -91,6 +125,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/profileManagement">Profile Management</a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/quote">Fuel Quote Pricing</a>
                     </li>
@@ -104,23 +141,26 @@
             </div>
         </div>
     </nav>
-    <div id="form1" class = "center">
-        <form method="POST">
+    <div class = "center">
+        <form method="POST" id="form1">
             <h2 style="text-align:center">Fuel Quote Form</h2>
             <label for="gallons">Gallons Requested:</label><br>
-            <input type="number" id="gallons" name="gallons" value="<%= myData.gallons %>" required><br>
+            <input type="number" id="gallons" name="gallons" onkeyup="success()" value="<%= myData.gallons %>" required><br>
             <label for="dilvery">Delivery Address:</label><br>
             <input type="text" id="dilvery" name="dilvery" value="<%= profile.address1 %>" readonly><br>
             <label for="date">Delivery Date:</label><br>
-            <input type="Date" id="date" name="date" value="<%= myData.date %>"required><br>
+            <input type="Date" id="date" name="date" oninput="success()" value="<%= myData.date %>" required><br>
             <label for="sugPrice">Suggested Price:</label><br>
             <input type="text" id="sugPrice" name="sugPrice" value="<%= myData.sugPrice %>"readonly><br>
             <label for="due">Total Amount Due:</label><br>
             <input type="text" id="due" name="due" value="<%= myData.due %>" readonly><br>
-            <button type="submit" class="btn btn-success btn-lg" formaction="/pricing">Get Price</button><br>
-            <button type="submit" class="btn btn-success btn-lg" formaction="/quote">Submit</button>
+            <button class="button" type="submit" id="getpricebtn" class="btn btn-success btn-lg" formaction="/pricing" >Get Price</button><br>
+            <button class="button" type="submit" id="submitbtn" class="btn btn-success btn-lg" formaction="/quote" >Submit</button>
         </form>
     </div>
+
+
+    
 </body>
 </html>
 

@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 var Profile = new mongoose.Schema({
     userID: { type: Schema.Types.ObjectId, ref: 'User' },
-    fullName : String,
+    fullName : { type:String},
     id: String,
-    address1: String,
-    address2: String,
-    city: String,
-    state: String,
-    zip: Number,
+    address1: { type:String},
+    address2: { type:String},
+    city: { type:String},
+    state: { type:String},
+    zip: { type:Number},
     quotes: [{type: Schema.Types.ObjectId, ref: 'Quote'}]
 });
 

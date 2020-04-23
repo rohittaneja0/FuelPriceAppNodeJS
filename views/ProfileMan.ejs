@@ -93,6 +93,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
+                        <a class="nav-link" href="/profileManagement">Profile Management</a>
+                    </li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="/quote">Fuel Quote Pricing</a>
                     </li>
                     <li class="nav-item active">
@@ -118,9 +121,9 @@
             <input type="text" id="city" name="city" value="<%= profile.city %>" required maxlength="100"><br>
             <!--change this to a drop down list-->
             <label for="state">State:</label><br>
-            <select id="state" name= "state" value="" selected required>
-                <option value="">Please choose an option</option>
-                <option value="AL">Alabama</option>
+            <select id="state" name= "state" value="<%= profile.state %>" required>
+                <option value="<%= profile.state %>"><%= profile.state %></option>
+                <option value="AL" >Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
                 <option value="AR">Arkansas</option>
@@ -177,9 +180,5 @@
             <input type="Submit">
         </form>
     </div>
-
-    <script>
-        $("#state").val("profile.state");
-    </script>
 </body>
 </html>
